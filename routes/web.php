@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/welcome', 'welcome');
+
+Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
